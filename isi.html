@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Isi</title>
+    <style>
+        /* Reset dan styling dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        /* Container untuk card */
+        .container {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* Card styling */
+        .card-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Ukuran card lebih besar */
+        }
+
+        .card {
+            position: relative;
+            background-color: white;
+            color: black;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin: 15px 0;
+        }
+
+        .card p {
+            font-size: 1rem;
+            margin: 0 15px 20px;
+        }
+
+        /* Lampu di luar card */
+        .neon-line {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 3px solid transparent;
+            border-radius: 15px;
+            background: linear-gradient(90deg, red, yellow, green, blue, purple, red);
+            background-size: 400% 400%;
+            animation: neonGlow 3s infinite;
+            z-index: -1; /* Pastikan berada di belakang card */
+        }
+
+        @keyframes neonGlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Tombol */
+        .choose-btn {
+            margin-top: 30px;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: blue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .choose-btn:hover {
+            background-color: darkblue;
+        }
+
+        /* Responsif */
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card-container {
+                width: 100%;
+            }
+
+            .choose-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <h1>Happy Birthday Faradila Natali</h1>
+    </div>
+
+    <div class="container">
+        <!-- Card pertama -->
+        <div class="card-container">
+            <div class="neon-line"></div>
+            <div class="card">
+                <img src="aset/1.jpg" alt="Foto 1">
+                <h3>For You</h3>
+                <p>Hi my love, happy birthday dear, I hope you live long, stay healthy, and continue to be a strong woman. Last, all the best prayers for you.</p>
+            </div>
+        </div>
+
+        <!-- Card kedua -->
+        <div class="card-container">
+            <div class="neon-line"></div>
+            <div class="card">
+                <img src="aset/2.jpg" alt="Foto 2">
+                <h3>For Us</h3>
+                <p>And for us, I want us to always be together, and love each other. I really love you, now and forever.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tombol -->
+    <button class="choose-btn" onclick="window.location.href='choose.html'">Choose Your Gift</button>
+</body>
+</html>

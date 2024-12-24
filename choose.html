@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Hadiah</title>
+    <style>
+        /* Reset dan styling dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        /* Container untuk card */
+        .container {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* Card styling */
+        .card {
+            position: relative;
+            background-color: white;
+            color: black;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px; /* Ukuran card */
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin: 15px 0;
+        }
+
+        /* Animasi kado */
+        .gift {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+            background: #ff6f61;
+            border-radius: 10px;
+        }
+
+        .gift:before,
+        .gift:after {
+            content: '';
+            position: absolute;
+            background: #fff;
+            border-radius: 5px;
+        }
+
+        .gift:before {
+            width: 20px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .gift:after {
+            width: 100%;
+            height: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .ribbon {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            animation: bounce 1s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+            50% {
+                transform: translateX(-50%) translateY(5px);
+            }
+        }
+
+        /* Tombol */
+        .choose-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            color: white;
+            background-color: blue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .choose-btn:hover {
+            background-color: darkblue;
+        }
+
+        /* Kembang Api */
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .firework {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #ffdd00, transparent);
+            border-radius: 50%;
+            animation: explode 1s ease-out infinite;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+
+        /* Responsif */
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Pilih Kotak Hadiah Kejutanmu!</h1>
+
+    <!-- Container untuk kartu -->
+    <div class="container">
+        <!-- Card pertama -->
+        <div class="card">
+            <div class="gift">
+                <div class="ribbon"></div>
+            </div>
+            <h3>Hadiah 1</h3>
+            <p>Kotak hadiah mana yang akan Faradila pilih?</p>
+            <button class="choose-btn" onclick="alert('Tombol tidak berfungsi, coba klik tombol lainnya.')">Pilih</button>
+        </div>
+
+        <!-- Card kedua -->
+        <div class="card">
+            <div class="gift">
+                <div class="ribbon"></div>
+            </div>
+            <h3>Hadiah 2</h3>
+            <p>Kotak hadiah mana yang akan Faradila pilih?</p>
+            <button class="choose-btn" onclick="window.location.href='happy.html'">Pilih</button>
+        </div>
+    </div>
+
+    <!-- Kembang api -->
+    <div class="fireworks" id="fireworks"></div>
+
+    <script>
+        // Fungsi untuk menampilkan kembang api
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            firework.style.left = Math.random() * 100 + '%';
+            firework.style.top = Math.random() * 100 + '%';
+            document.getElementById('fireworks').appendChild(firework);
+            setTimeout(() => firework.remove(), 1000);
+        }
+
+        setInterval(createFirework, 300);
+    </script>
+</body>
+</html>
